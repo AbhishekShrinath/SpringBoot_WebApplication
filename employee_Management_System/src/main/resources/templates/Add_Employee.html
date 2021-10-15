@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Employee</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+</head>
+<body style ="background: url(/img/background_reg.jpg);
+		background-size:cover;
+		background-repeat: no-repeat;">
+		
+<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}" style="color:lime; font-family: Times New Roman;font-size: 26px;">Back </a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" style="color:red; font-family: Times New Roman;font-size: 25px;">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<div class="container">
+		<h1 style="color:black; font-family: Times New Roman;">Employee Management System</h1>
+		
+		<form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
+			method="post">
+
+			<input type="text" th:field="*{firstname}"
+				placeholder="Enter Employee FirstName"
+				class="form-control mb-4 col-4" required autofocus="autofocus">
+				<br>
+				
+			<input type="text" th:field="*{lastname}"
+				placeholder="Enter Employee LastName"
+				class="form-control mb-4 col-4" required autofocus="autofocus">
+				<br>
+			<input type="text" th:field="*{email}"
+				placeholder="Enter Employee Emial-id"
+				class="form-control mb-4 col-4" required autofocus="autofocus">
+<br>
+			<button type="submit" class="btn btn-info col-2">Save Employee</button>
+		</form>
+
+	</div>
+</body>
+</html>
